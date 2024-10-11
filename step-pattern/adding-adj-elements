@@ -1,0 +1,8 @@
+1.step pattern:
+------>
+addition of adjacent numbers in sorted array
+will jump to the elemetns where there are cases 
+it may bt smallest eleemtn which cannot be formed from any combination of elements in that array.
+
+Link:
+https://www.geeksforgeeks.org/problems/smallest-number-subset1220/1
