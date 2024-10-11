@@ -1,3 +1,12 @@
+1.
+using dp of two dimensions 
+for two entities
+in recursion stop when base case occurs
+or 
+answer already computed
+
+Code:
+    
 class Solution {
     public int longestPalindromeSubseq(String s) {
         String reversedString=new StringBuilder(s).reverse().toString();
