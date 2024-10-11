@@ -1,3 +1,10 @@
+Pattern:
+1.
+using Stack to remove pair parentheis first
+then 
+making our computation with remaining ones
+
+Code:
 class Solution {
     public int minAddToMakeValid(String s) {
         Stack<Character> st = new Stack<>();
@@ -13,3 +20,7 @@ class Solution {
         return ans+st.size();
     }
 }
+
+2.
+Same pattern 
+now minimum swaps to make parenthesis valid
