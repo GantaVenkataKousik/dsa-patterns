@@ -1,0 +1,32 @@
+For cloning
+Definitely we need two things
+the old one --> attached with new one
+
+1.
+
+Link:
+https://leetcode.com/problems/clone-graph/
+
+Code:
+
+class Solution {
+    public Node cloneGraph(Node node) {
+        if(node==null)return null;
+        Map<Node,Node> mp=new HashMap<>();      
+        Queue<Node> q=new LinkedList<>();
+        q.add(node);
+        mp.put(node,new Node(node.val));
+        while(!q.isEmpty()){
+            Node currNode=q.poll();
+            Node clonedNode=mp.get(currNode);
+            for(Node neighbor:currNode.neighbors){
+                if(!mp.containsKey(neighbor)){
+                    mp.put(neighbor,new Node(neighbor.val));
+                    q.add(neighbor);
+                }
+                clonedNode.neighbors.add(mp.get(neighbor));
+            }
+        }
+        return mp.get(node);
+    }
+}
