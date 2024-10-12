@@ -1,0 +1,44 @@
+This substring is always been a main pattern 
+where palindrome combination with substring is deadly
+
+1.
+finding longest
+
+can find maximum count of longest palindrome
+then
+
+traverse throught the string finding the right
+substring 
+
+else
+
+expanding around the corner
+
+Link:
+https://leetcode.com/problems/longest-palindromic-substring/
+
+Code:
+class Solution {
+    public String longestPalindrome(String s) {
+        String maxStr=s.substring(0,1);
+        int n=s.length();
+        for(int i=0;i<n;i++){
+            String odd=expandFromCenter(s,n,i,i);
+            String even=expandFromCenter(s,n,i,i+1);
+            if(odd.length()>maxStr.length()){
+                maxStr=odd;
+            }
+            if(even.length()>maxStr.length()){
+                maxStr=even;
+            }
+        }
+        return maxStr;
+    }
+    public static String expandFromCenter(String s,int n,int start,int end){
+        while(start>=0 && end<n && s.charAt(start)==s.charAt(end)){
+            start--;
+            end++;
+        }
+        return s.substring(start+1,end);
+    }
+}
