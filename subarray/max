@@ -1,0 +1,21 @@
+1.Max of two smallest elements
+
+Instead of going through every subarray wasting time 
+the answer is basically sum of two elememts 
+so just take two adjacent elements add them check to the max 
+becuase ultimately 
+findig two smallest it useless
+
+Code:
+class Solution {
+    public int pairWithMaxSum(int[] arr) {
+        int ans[]=new int[1];
+         for(int i=0;i<arr.length-1;i++){
+            ans[0]=Math.max(ans[0],arr[i]+arr[i+1]);
+        }
+        return ans[0]==0?-1:ans[0];
+    }
+}
+
+Link:
+https://www.geeksforgeeks.org/problems/maximum-sum-of-smallest-and-second-smallest-in-an-array/1
