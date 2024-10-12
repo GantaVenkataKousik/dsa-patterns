@@ -32,7 +32,7 @@ decide wether to move forward by storing the minimum count decides
 which path we are choosing
 
 Link:
-
+https://leetcode.com/problems/minimum-path-sum/description/
 Code:
 class Solution {
     public int minPathSum(int[][] grid) {
