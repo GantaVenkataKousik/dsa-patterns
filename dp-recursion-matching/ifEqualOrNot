@@ -1,0 +1,29 @@
+1.
+In recursion check if equal then will add accordingly
+and 
+checks if for that answer already exists
+
+Link :
+https://leetcode.com/problems/longest-palindromic-subsequence/description/
+
+Code:
+class Solution {
+    public int longestPalindromeSubseq(String s) {
+        String reversedString=new StringBuilder(s).reverse().toString();
+        int n=s.length();
+        int[][] dp=new int[n][n];
+        for(int arr[]:dp){
+            Arrays.fill(arr,-1);
+        }
+        return lps(0,0,s,reversedString,n,dp);
+    }
+    public int lps(int i1,int i2,String s1,String s2,int n,int[][] dp){
+        if(i1==n || i2==n)return 0;
+        if(dp[i1][i2]!=-1)return dp[i1][i2];
+        if(s1.charAt(i1)==s2.charAt(i2))return dp[i1][i2]=1+lps(i1+1,i2+1,s1,s2,n,dp);
+        return dp[i1][i2]=Math.max(
+            lps(i1+1,i2,s1,s2,n,dp),
+            lps(i1,i2+1,s1,s2,n,dp)
+        );
+    }
+}
