@@ -24,3 +24,21 @@ class Solution {
 2.
 Same pattern 
 now minimum swaps to make parenthesis valid
+
+Link:
+https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/
+    public int minSwaps(String s) {
+        Stack<Character> st = new Stack<>();
+        for(char ch:s.toCharArray()){
+            if(st.isEmpty()){
+                if(ch=='[')st.push('[');
+            }
+            else if(ch==']' && st.peek()=='['){
+                st.pop();
+            }
+            else st.push('[');
+        }
+        int ans=st.size();
+        return (int)Math.ceil(ans/2.0);
+    }
+}
