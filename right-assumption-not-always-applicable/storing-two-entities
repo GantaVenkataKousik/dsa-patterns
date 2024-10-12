@@ -1,0 +1,40 @@
+we always have an right assumption
+
+But it is not awalys applicable
+so 
+
+think for simple ones
+
+1.
+here I need to store the first index 
+and last index 
+in order to find the maximum distance possible 
+
+so I thouhgt storing the indexes 
+in an array
+with key as the element
+
+Map : element -> [first index , second index]
+
+but instead we can also implement the same 
+as 
+
+element -> value
+
+when the element first occurs we store that
+that is enough becuase from
+next 
+whenever teh same element occurs
+we find the 
+diff and will update the maximum accordingly
+
+Link:
+https://www.geeksforgeeks.org/problems/max-distance-between-same-elements/1
+
+Code:
+manam enno dsa problems chestu untam kaani over a period manaki most imp andulo patterns 
+nenu annii chesi naaku ippu malli revise avvalsi vastundi problem add chesina dani valla manakem use undaud 
+ade pattern lo multiple problems identify chesina multiple sub patterns oka main pettern lo identify chesina 
+eppatiki useful utundi 
+end of day or for every problem indulo add chestu undu pattern ni 
+nee id pettaka ninnu collaborator ga add chestanu
