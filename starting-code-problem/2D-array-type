@@ -1,0 +1,50 @@
+1.
+
+Often get a problem of where to start the code with 
+we know the next process
+but got stuck due to how to start this
+
+In this cases 
+initialise an 2D- array
+
+Don't fed the array with anything intially without 
+entering into traversing
+
+as you enter into the tarversign just 
+differentiaate with 
+if(i==0){
+    prev.right=temp[i][j];
+    prev=prev.right;
+}else {
+    prev.right=temp[i][j];
+    prev=prev.right;
+    temp[i-1][j].down=temp[i][j];
+}
+
+Link:
+https://www.geeksforgeeks.org/problems/linked-list-matrix/1
+
+Code:
+class Solution {
+    
+    static Node construct(int arr[][]) {
+       int n=arr.length;
+        int m=arr[0].length;
+        Node temp[][]=new Node[n][m];
+        for(int i=0;i<arr.length;i++){
+            Node prev=new Node(-1);
+            for(int j=0;j<arr[0].length;j++){
+                temp[i][j]=new Node(arr[i][j]);
+                if(i==0){
+                    prev.right=temp[i][j];
+                    prev=prev.right;
+                }else {
+                    prev.right=temp[i][j];
+                    prev=prev.right;
+                    temp[i-1][j].down=temp[i][j];
+                }
+            }
+        }
+        return temp[0][0];
+    }
+}
