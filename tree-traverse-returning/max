@@ -1,0 +1,33 @@
+1.
+In Trees almost every question we traverse through bfs
+Its most important what are are returning with 
+after every recursive call
+
+even if it is easy or medium or hard
+just try iterations in finding the answer 
+while returning result after every recursive call
+
+from the left sub tree
+and from the right sub tree
+
+Link:
+https://leetcode.com/problems/binary-tree-maximum-path-sum/
+
+Code:
+class Solution {
+    public static int max=Integer.MIN_VALUE;
+    
+    public static int findMax(TreeNode root){
+        if(root==null)return 0;
+        int leftMax=Math.max(0,findMax(root.left));
+        int rightMax=Math.max(0,findMax(root.right));
+        max=Math.max(max,leftMax+rightMax+root.val);
+        return Math.max(leftMax,rightMax)+root.val;
+    }
+
+    public int maxPathSum(TreeNode root) {
+        max=Integer.MIN_VALUE;
+        findMax(root);
+        return max;
+    }
+}
