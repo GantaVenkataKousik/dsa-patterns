@@ -1,0 +1,41 @@
+1.
+TO find the number of connected components in a undirected graph
+Going thourhgh every node
+and traversing through the entire nodes that were connected to that 
+particular node
+
+Main thing to remember is 
+the input format of the graph
+changes the complete play
+
+we accomplish the same using bfs
+
+Link:
+https://www.geeksforgeeks.org/problems/number-of-provinces/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
+Code:
+class Solution {
+    static int numProvinces(ArrayList<ArrayList<Integer>> adj, int V) {
+        int visited[]=new int[V+1];
+        Queue<Integer> q= new LinkedList<>();
+        int provinces=0;
+        for(int i=0;i<V;i++){
+            if(visited[i]!=1){
+                q.add(i);
+                visited[i]=1;
+                while(!q.isEmpty()){
+                    int node=q.poll();
+                    for(int k=0;k<V;k++){
+                        if(visited[k]!=1 && adj.get(node).get(k)==1){
+                            visited[k]=1;
+                            q.add(k);
+                        }
+                    }
+                }
+                provinces++;
+            }
+        }
+        
+        return provinces;
+    }
+};
