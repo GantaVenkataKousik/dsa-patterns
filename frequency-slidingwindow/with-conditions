@@ -1,0 +1,48 @@
+Link:
+https://leetcode.com/problems/find-x-sum-of-all-k-long-subarrays-ii/
+
+COde:
+class Solution {
+
+    int calculate(Map<Long,Long> mp,int x){
+        List<Map.Entry<Long,Integer>> list= new ArrayList<>(mp.entrySet());
+            Collections.sort(list,(a,b)->{
+                if(a.getValue().equals(b.getValue())){return b.getKey().compareTo(a.getKey());}
+            return b.getValue().compareTo(a.getValue());
+         });
+        
+        Long sum=0;
+        int cnt=0;
+        for(Map.Entry<Integer,Integer> entry:list){
+            if(cnt>=x)break;
+            sum+=entry.getKey()*entry.getValue();
+            cnt++;
+        }
+        return sum;
+    }
+    public long[] findXSum(int[] nums, int k, int x) {
+        
+        int n=nums.length;
+        List<Long> result=new ArrayList<>();
+        Map<Long,Integer> mp=new HashMap<>();
+        for(int i=0;i<k;i++){
+            mp.put(nums[i],mp.getOrDefault(nums[i],0)+1);
+        }
+        result.add(calculate(mp,x));
+        for(int i=k;i<n;i++){
+            mp.put(nums[i],mp.getOrDefault(nums[i],0)+1);
+
+            int out=nums[i-k];
+            mp.put(out,mp.get(out)-1);
+            if(mp.get(out)==0){
+                mp.remove(out);
+            }
+            result.add(calculate(mp,x));
+        }
+        Long[] ans=new Long[result.size()];
+        for(int m=0;m<result.size();m++){
+            ans[m]=result.get(m);
+        }
+        return ans;
+    }
+}
