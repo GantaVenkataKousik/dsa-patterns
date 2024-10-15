@@ -1,0 +1,39 @@
+
+1.
+Given black and whites in the form of 1 and 0
+we need to swap them in such a way that
+1 needs be to the right and 0 to the left
+adn only 
+adjacent can be swapped
+we need to find the minimum swaps
+
+simple traverse from the start
+when you encounter
+
+white 
+simply add the blackCnt which means you need to swap that many 
+white with black to make this white ball to push to the left
+
+Link:
+https://leetcode.com/problems/separate-black-and-white-balls/
+
+Code:
+class Solution {
+    public long minimumSteps(String s) {
+        int n=s.length();
+        int j=0;
+        long ans=0;
+        long blackBallCnt=0;
+        while(j< n){
+            if(s.charAt(j)=='1'){
+                blackBallCnt++;
+            }
+            else{
+                ans+=blackBallCnt;
+            }
+            j++;
+        }
+        return ans;
+        
+    }
+}
