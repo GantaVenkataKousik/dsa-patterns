@@ -1,0 +1,44 @@
+1.
+
+IN this given an array 
+we need to find how many subarray 
+with the target exists
+
+for this 
+we simply keep track of the prefix sums 
+and keep track of how many same prefix sums
+exists exists
+
+for sum zero means exact subarray exists
+so we add 0 with 1 --> means one to the answer
+if zero current sum increases then thsi too 
+increases
+means
+
+< ------ > 0 <---> 
+already 1
+added one after first zero
+now 2
+than that will be added indicating three subarrays 
+in total
+
+Link:
+https://www.geeksforgeeks.org/problems/subarray-range-with-given-sum0128/1
+Code:
+class Solution {
+    // Function to count the number of subarrays which adds to the given sum.
+    static int subArraySum(int arr[], int tar) {
+        Map<Integer,Integer> mp=new HashMap<>();
+        int ps=0,cs=0,ans=0;
+        mp.put(0,1);
+        for(int ele:arr){
+            cs+=ele;
+            ps=cs-tar;
+            if(mp.containsKey(ps)){
+                ans+=mp.get(ps);
+            }
+            mp.put(cs,mp.getOrDefault(cs,0)+1);
+        }
+        return ans;
+    }
+}
