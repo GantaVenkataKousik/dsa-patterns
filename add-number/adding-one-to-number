@@ -1,0 +1,40 @@
+this is pretty similar to adding one to a linkedlist
+just the question is about ti round off
+
+when we try normally
+it wont suit for bigger nunber 
+it will result in 
+Bigger Integer fault
+
+so take of that 
+for that you need to solve using strings only
+
+Link:
+https://www.geeksforgeeks.org/problems/nearest-multiple-of-102437/1
+
+Code:
+
+class Solution {
+
+    String roundToNearest(String str) {
+        // Complete the function
+        StringBuilder sb=new StringBuilder("");
+        int k=str.length()-2;
+        int carry=0;
+        if(str.charAt(k+1)>'5')carry=1;
+        sb.append("0");
+        int sum=0;
+        while(k>=0 || carry==1){
+            if(k<0)break;
+            sum=carry;
+            sum+=(str.charAt(k)-'0');
+            sb.append(String.valueOf(sum%10));
+            carry=sum/10;
+            k--;
+        }
+        if(carry==1){
+            sb.append("1");
+        }
+        return sb.reverse().toString();
+    }
+}
