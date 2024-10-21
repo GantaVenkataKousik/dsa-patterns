@@ -1,0 +1,41 @@
+
+Imginary next higher number can be replaced with -1
+
+
+here the problem is to make teh array distinct
+for this the intial assum[tion is to 
+sort the array 
+but they have asked for minimal opertions
+which can't be garaunteed by sorting
+
+now the main important thing 
+is 
+we traverse through the array
+checks two adjacent elements
+
+and then
+
+change teh current element to -1
+indicating that the next possibnle bigger number 
+instead of finding the maximum number 
+
+Link:
+
+
+
+Code:
+
+class Solution {
+    public static int makePerfect(int n, int[] arr) {
+        // Arrays.sort(arr);
+        int ans=0;
+        for(int i=1;i<n;i++){
+            if(arr[i-1]==arr[i]){
+                int diff=arr[i]-arr[i-1]+1;
+                arr[i]=-1;
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
