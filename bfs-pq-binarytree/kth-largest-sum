@@ -1,0 +1,36 @@
+This is the first time I'm encountering to use
+priority Queue in BFS approach on a binary Tree
+
+and always remember 
+you can omit more than K
+taht can result in lesser computation or else 
+you cal also sort
+but when you find kth largest 
+or kth smallest 
+better to use priority Queue 
+elimination more than k size
+
+Link:
+https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/
+Code:
+
+class Solution {
+    public long kthLargestLevelSum(TreeNode root, int k) {
+        Queue<TreeNode> q=new LinkedList<>();
+        PriorityQueue<Long> pq = new PriorityQueue<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            long sum=0;
+            int size=q.size();
+            for(int i=0;i<size;i++){
+                TreeNode node=q.poll();
+                sum+=node.val;
+                if(node.left!=null)q.add(node.left);
+                if(node.right!=null)q.add(node.right);
+            }
+            pq.add(sum);
+            if(pq.size()>k)pq.poll();
+        }
+        return pq.size()<k?-1:pq.peek();
+    }
+}
