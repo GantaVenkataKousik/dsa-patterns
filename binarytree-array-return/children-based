@@ -1,0 +1,61 @@
+
+
+Link:
+https://www.geeksforgeeks.org/problems/maximum-sum-of-non-adjacent-nodes/1
+
+Code:
+
+class Solution
+{
+    
+    // static int findMaxSum(Node root,boolean isTaken){
+    //     if(root==null)return 0;
+    //     int consider=0,notconsider=0;
+    //     if(isTaken==true){
+    //         consider+=root.data;
+    //         consider+=findMaxSum(root.left,false);
+    //         consider+=findMaxSum(root.right,false);
+    //         return consider;
+    //     }
+    //     notconsider+=findMaxSum(root.left,true);
+    //     notconsider+=findMaxSum(root.right,true);
+    //     return notconsider;
+    // }
+    // //Function to return the maximum sum of non-adjacent nodes.
+    // static int getMaxSum(Node root)
+    // {
+    //     int[] maxSum=new int[1];
+    //     maxSum[0] = Math.max(maxSum[0],findMaxSum(root,true));
+    //     maxSum[0] = Math.max(maxSum[0],findMaxSum(root,false));
+    //     return maxSum[0];
+    // }
+       static int getMaxSum(Node root) {
+        // We use a helper function that returns an array with two values:
+        // dp[0] -> Maximum sum when the current node is not included
+        // dp[1] -> Maximum sum when the current node is included
+        int[] result = helper(root);
+        // Return the maximum of both cases
+        return Math.max(result[0], result[1]);
+    }
+
+    // Helper function that returns an array for a given node
+    static int[] helper(Node node) {
+        // If the node is null, return {0, 0} for both cases
+        if (node == null) return new int[]{0, 0};
+
+        // Recursively solve for the left and right subtrees
+        int[] left = helper(node.left);
+        int[] right = helper(node.right);
+
+        // dp[0] -> When the current node is not included, we can take the maximum
+        // of both included or not included options of its children
+        int notTake = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+
+        // dp[1] -> When the current node is included, we can only take the not included
+        // option of its children
+        int take = node.data + left[0] + right[0];
+
+        // Return both possibilities
+        return new int[]{notTake, take};
+    }
+}
