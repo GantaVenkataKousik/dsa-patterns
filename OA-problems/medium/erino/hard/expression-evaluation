@@ -1,0 +1,17 @@
+think about solving in diff programming languages 
+because it is preferrable to 
+understand how well can it execute 
+or easy 
+with other programming languages
+
+const expression = "(2-0)/(6+7)";
+
+function evaluateExpression(expr) {
+    try {
+        return Math.floor(eval(expr)); // Use eval to evaluate and Math.floor to ensure integer result
+    } catch (error) {
+        console.error("Invalid expression:", error);
+    }
+}
+
+console.log(evaluateExpression(expression)); // Output will be an integer
