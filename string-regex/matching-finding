@@ -1,0 +1,34 @@
+The pattern `^[\\ ]*([\\+\\-]?\\d+)` is used to match a specific type of string that potentially starts with spaces, followed by an optional sign (`+` or `-`), and then a sequence of digits. Let's break down each part:
+
+1. **`^`**: Asserts the position at the start of the string.
+2. **`[\\ ]*`**: Matches any number (`*`) of spaces. The `[\\ ]` notation represents a space character, and the `*` means zero or more occurrences of spaces.
+3. **`([\\+\\-]?\\d+)`**:
+   - **`[\\+\\-]?`**: Matches an optional `+` or `-` sign. The `?` quantifier makes it optional (matches either one or zero times).
+   - **`\\d+`**: Matches one or more digits (`0-9`). The `+` quantifier indicates that at least one digit is required.
+
+### In Summary:
+The regex pattern matches:
+- A string that may start with spaces,
+- Followed by an optional `+` or `-` sign,
+- And a sequence of one or more digits.
+
+### Example Matches:
+- `"  +123"`
+- `"   -45"`
+- `"789"`
+  
+This pattern could be used, for example, to extract integer values (with optional spaces and signs) from a string.
+
+
+
+In the code provided, matcher.find() and matcher.group(1) are methods from Java's Matcher class, which works alongside the Pattern class to match regular expressions. Here’s what each method does in this context:
+
+matcher.find()
+The find() method attempts to find the next occurrence of the pattern in the input string s.
+It returns true if there is a match and false otherwise.
+In this case, find() is used to check if there is a substring in s that matches the pattern ^[\\ ]*([\\+\\-]?\\d+).
+If find() returns false, the if block returns 0, meaning no match was found.
+matcher.group(1)
+group(1) returns the text that was matched by the first capturing group in the pattern, which is specified by the parentheses (...).
+In this pattern, ([\\+\\-]?\\d+) is the first capturing group. It captures an optional sign (+ or -) followed by one or more digits.
+group(1) will return this matched part as a String, which is stored in numStr.
