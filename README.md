@@ -1,14 +1,19 @@
 # DSA Patterns
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## Overview
 
 The `dsa_patterns` repository is a collection of important Data Structures and Algorithms (DSA) problems, focusing on the various patterns that emerge from solving these challenges. While we tackle numerous DSA problems, it's crucial to identify the underlying patterns that can help us efficiently approach similar problems in the future.
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ### Purpose
 
 As we work through these DSA challenges, we'll compile a list of significant patterns and their associated sub-patterns. This will not only aid in our revision process but also enhance our problem-solving skills by recognizing common themes across different problems. 
 
 The goal is to identify multiple sub-patterns within a main pattern, which can be immensely beneficial when faced with new problems. By building this repository, we aim to create a valuable resource for both individual learning and collaborative study.
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ### Structure
 
